@@ -185,6 +185,7 @@ type IngressControllerSpec struct {
 	// buffer values that are too large could cause the IngressController to
 	// use significantly more memory than necessary.
 	//
+	// +nullable
 	// +optional
 	HTTPHeaderBuffer IngressControllerHTTPHeaderBuffer `json:"httpHeaderBuffer,omitempty"`
 }
