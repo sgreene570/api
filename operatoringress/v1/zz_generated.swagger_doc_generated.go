@@ -30,11 +30,12 @@ func (DNSRecordList) SwaggerDoc() map[string]string {
 }
 
 var map_DNSRecordSpec = map[string]string{
-	"":           "DNSRecordSpec contains the details of a DNS record.",
-	"dnsName":    "dnsName is the hostname of the DNS record",
-	"targets":    "targets are record targets.",
-	"recordType": "recordType is the DNS record type. For example, \"A\" or \"CNAME\".",
-	"recordTTL":  "recordTTL is the record TTL in seconds. If zero, the default is 30. RecordTTL will not be used in AWS regions Alias targets, but will be used in CNAME targets, per AWS API contract.",
+	"":                 "DNSRecordSpec contains the details of a DNS record.",
+	"dnsName":          "dnsName is the hostname of the DNS record",
+	"targets":          "targets are record targets.",
+	"recordType":       "recordType is the DNS record type. For example, \"A\" or \"CNAME\".",
+	"recordTTL":        "recordTTL is the record TTL in seconds. If zero, the default is 30. RecordTTL will not be used in AWS regions Alias targets, but will be used in CNAME targets, per AWS API contract.",
+	"providerSpecific": "providerSpecific stores preovider specific configurations.",
 }
 
 func (DNSRecordSpec) SwaggerDoc() map[string]string {
@@ -67,6 +68,14 @@ var map_DNSZoneStatus = map[string]string{
 
 func (DNSZoneStatus) SwaggerDoc() map[string]string {
 	return map_DNSZoneStatus
+}
+
+var map_ProviderSpecificProperty = map[string]string{
+	"": "ProviderSpecificProperty describes an individual property with a Name and Value for a specific provider.",
+}
+
+func (ProviderSpecificProperty) SwaggerDoc() map[string]string {
+	return map_ProviderSpecificProperty
 }
 
 // AUTO-GENERATED FUNCTIONS END HERE

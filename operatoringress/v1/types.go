@@ -52,6 +52,11 @@ type DNSRecordSpec struct {
 	// +kubebuilder:validation:Minimum=0
 	// +required
 	RecordTTL int64 `json:"recordTTL"`
+
+	// providerSpecific stores preovider specific configurations.
+	//
+	// +optional
+	ProviderSpecific []ProviderSpecificProperty `json:"providerSpecific,omitempty"`
 }
 
 // DNSRecordStatus is the most recently observed status of each record.
@@ -111,6 +116,13 @@ const (
 	// ARecordType is an RFC 1035 A record.
 	ARecordType DNSRecordType = "A"
 )
+
+// ProviderSpecificProperty describes an individual property with a Name
+// and Value for a specific provider.
+type ProviderSpecificProperty struct {
+	Name  string `json:"name,omitempty"`
+	Value string `json:"value,omitempty"`
+}
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 // +kubebuilder:object:root=true
